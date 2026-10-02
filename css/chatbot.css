@@ -1,0 +1,17 @@
+#bb-fab{position:fixed;right:18px;bottom:18px;z-index:1100;border:0;border-radius:50px;padding:.8rem 1.2rem;background:var(--red);color:#fff;font-weight:700;animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(217,4,41,.6)}70%{box-shadow:0 0 0 18px rgba(217,4,41,0)}100%{box-shadow:0 0 0 0 rgba(217,4,41,0)}}
+#bb-win{position:fixed;right:18px;bottom:18px;z-index:1101;width:360px;max-width:calc(100vw - 24px);height:520px;max-height:calc(100vh - 24px);background:#fff;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.3);display:none;flex-direction:column;overflow:hidden}
+#bb-win.open{display:flex;animation:fadeUp .35s}#bb-win.min{height:60px}#bb-win.min .bb-body,#bb-win.min .bb-foot,#bb-win.min .bb-q{display:none}
+.bb-head{background:linear-gradient(135deg,var(--red),#7a0218);color:#fff;padding:.8rem 1rem;display:flex;justify-content:space-between;align-items:center}
+.bb-head small{display:block;opacity:.85}.bb-head button{background:none;border:0;color:#fff;font-size:1.1rem}
+.bb-body{flex:1;overflow-y:auto;padding:1rem;background:#fafafa}
+.msg{max-width:85%;margin-bottom:.7rem;padding:.6rem .85rem;border-radius:14px;font-size:.92rem;animation:fadeUp .3s}
+.msg.bot{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08)}.msg.user{background:var(--red);color:#fff;margin-left:auto}
+.msg time{display:block;font-size:.68rem;opacity:.6;margin-top:3px}
+.bb-q{display:flex;flex-wrap:wrap;gap:.4rem;padding:.5rem 1rem;max-height:96px;overflow-y:auto}
+.bb-q button{border:1px solid var(--red);background:#fff;color:var(--red);border-radius:50px;font-size:.78rem;padding:.25rem .7rem}
+.msg a.btn-lp{margin-top:.4rem;padding:.3rem .9rem;font-size:.82rem}
+.bb-foot{display:flex;gap:.4rem;padding:.6rem;border-top:1px solid #eee}.bb-foot input{flex:1;border:1px solid #ddd;border-radius:50px;padding:.45rem .9rem}
+.bb-foot button{border:0;background:var(--red);color:#fff;border-radius:50px;padding:0 1rem}
+.typing{font-size:.8rem;color:#777;font-style:italic;margin-bottom:.7rem}
+@media(max-width:576px){#bb-win{right:6px;bottom:6px;width:calc(100vw - 12px);height:80vh}}

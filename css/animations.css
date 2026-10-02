@@ -1,0 +1,59 @@
+@keyframes float{0%,100%{transform:translateY(0) rotate(-45deg)}50%{transform:translateY(-30px) rotate(-45deg)}}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.hero .col-lg-7{animation:fadeUp 1s both}
+.reveal{opacity:0;transform:translateY(30px);transition:.8s}.reveal.show{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+/* ---- 3D effects ---- */
+.scene{perspective:900px;height:280px;display:grid;place-items:center}
+.drop3d{position:relative;width:150px;height:150px;transform-style:preserve-3d;animation:spin3d 9s linear infinite}
+.drop3d i{position:absolute;inset:0;font-style:normal;transform:translateZ(calc(var(--i)*7px - 35px));filter:drop-shadow(0 0 25px rgba(255,61,84,.5))}
+@keyframes spin3d{from{transform:rotateX(-12deg) rotateY(0)}to{transform:rotateX(-12deg) rotateY(360deg)}}
+.card-lp{transform-style:preserve-3d;will-change:transform}
+.flip{perspective:900px;height:230px;cursor:pointer}
+.flip-in{position:relative;height:100%;transition:transform .8s;transform-style:preserve-3d}
+.flip:hover .flip-in,.flip.on .flip-in,.flip:focus-visible .flip-in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:20px;padding:1.4rem;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;box-shadow:0 8px 28px rgba(0,0,0,.12)}
+.face.front{background:#fff}.face.back{background:linear-gradient(135deg,var(--red),#7a0218);color:#fff;transform:rotateY(180deg)}
+.trophy{display:inline-block;animation:spin3d 6s linear infinite;transform-style:preserve-3d}
+/* ---- 3D animation for every section ---- */
+.reveal{--from:perspective(900px) rotateX(28deg) translateY(40px);transform:var(--from);transform-origin:50% 100%}
+.reveal.show{transform:none}
+#camps .reveal{--from:perspective(900px) rotateY(-45deg) translateX(-40px);transform-origin:0 50%}
+#camps .reveal:nth-child(even){--from:perspective(900px) rotateY(45deg) translateX(40px);transform-origin:100% 50%}
+.stat.reveal{--from:perspective(700px) rotateX(-90deg);transform-origin:50% 0}
+.step.reveal{--from:perspective(700px) rotateY(180deg) scale(.6)}
+.col-6.reveal:has(.group-btn),.group-col{--from:perspective(700px) rotateY(90deg)}
+.emergency.reveal{--from:perspective(1000px) rotateX(-35deg) scale(.9)}
+.emergency{animation:bob3d 7s ease-in-out infinite;transform-style:preserve-3d}
+.emergency .btn-ghost{transform:translateZ(40px)}
+@keyframes bob3d{0%,100%{rotate:x 0deg}50%{rotate:x 2deg}}
+.step span{animation:coin 5s linear infinite;transform-style:preserve-3d;box-shadow:0 6px 0 #8f0219,0 12px 22px rgba(217,4,41,.35)}
+@keyframes coin{to{transform:rotateY(360deg)}}
+.stat b{display:inline-block;text-shadow:0 2px 0 #ffb3bd,0 5px 0 #f58a97,0 10px 14px rgba(217,4,41,.3)}
+.card-lp .ico{display:inline-block;transition:transform .8s}
+.card-lp:hover .ico{transform:rotateY(360deg) scale(1.15)}
+.scroller{perspective:1000px}
+.story{transform:rotateY(-10deg);transform-origin:left center;transition:transform .5s}.story:hover{transform:rotateY(0) translateZ(20px)}
+.group-btn{box-shadow:0 6px 0 #a50320;transform-style:preserve-3d}
+.group-btn:active,.group-btn.coin{animation:coinflip .7s}
+@keyframes coinflip{from{transform:rotateY(0)}to{transform:rotateY(720deg)}}
+#results .card-lp,main .card-lp,.form-card{animation:flipIn .9s both}
+@keyframes flipIn{from{opacity:0;transform:perspective(900px) rotateX(-60deg) translateY(30px)}to{opacity:1;transform:none}}
+.footer h5{display:inline-block;animation:coin 8s linear infinite}
+.hero h1{transform:translateZ(0);text-shadow:0 3px 0 #7a0218,0 8px 18px rgba(0,0,0,.45)}
+@media(prefers-reduced-motion:reduce){.reveal,.reveal.show,.story{transform:none!important}.reveal{opacity:1}*{animation:none!important}}
+/* ---- Floating 3D illustrations (assets/images/*.svg) ---- */
+section,main,.hero{position:relative;overflow:hidden}
+section>.container,main>*,.hero>.container{position:relative;z-index:1}
+.deco{position:absolute;z-index:0;pointer-events:none;width:var(--s);transition:transform .25s ease-out;perspective:600px}
+.deco img{width:100%;display:block;animation:floaty 7s ease-in-out infinite;animation-delay:var(--dl);filter:drop-shadow(0 18px 18px rgba(0,0,0,.35))}
+@keyframes floaty{0%,100%{transform:translateY(0) rotateY(-25deg) rotateX(8deg)}50%{transform:translateY(-26px) rotateY(25deg) rotateX(-8deg)}}
+@media(max-width:576px){.deco{width:calc(var(--s)*.55);opacity:.55}}
+@media(prefers-reduced-motion:reduce){.deco img{animation:none!important}}
+.drop3d i img{width:100%;height:100%;object-fit:contain;filter:none}
+.drop3d i{filter:drop-shadow(0 0 22px rgba(255,61,84,.45))}
+/* ---- Keep floating images out of the way ---- */
+.deco{opacity:.6}
+@media(max-width:1399px){.deco{opacity:.3;width:calc(var(--s)*.7)}}
+@media(max-width:991px){.deco{display:none}}
