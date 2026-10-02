@@ -16,7 +16,7 @@ if(rng){const $=id=>document.getElementById(id);
  rng.addEventListener('input',upd);upd();
  $('claim').addEventListener('click',()=>{let c;try{c=localStorage.getItem('lp_coupon')}catch(e){}
   if(!c){c='LP-'+Math.random().toString(36).slice(2,8).toUpperCase();try{localStorage.setItem('lp_coupon',c)}catch(e){}}
-  $('coupon').style.display='block';$('coupon').textContent='🎁 Demo prize code: '+c+' – show this at a partner camp (demo only)'})}
+  $('coupon').style.display='block';$('coupon').textContent='🎁 Your prize code: '+c+' – show this at a partner camp'})}
 /* 3D reveal hooks for sections without .reveal in markup */
 document.querySelectorAll('.stat,#groups>div').forEach(el=>{el.classList.add('reveal');if(el.parentElement.id==='groups')el.classList.add('group-col');io.observe(el)});
 document.getElementById('groups')?.addEventListener('click',e=>{const b=e.target.closest('.group-btn');if(!b)return;b.classList.remove('coin');void b.offsetWidth;b.classList.add('coin')});
